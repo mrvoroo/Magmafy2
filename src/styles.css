@@ -497,6 +497,7 @@ details[open] .faq__plus { transform: rotate(45deg); background: var(--grad); }
 .form input::placeholder, .form textarea::placeholder { color: rgba(199, 182, 214, .55); }
 .form input:focus, .form select:focus, .form textarea:focus { outline: none; background: rgba(255, 255, 255, .1); box-shadow: inset 0 0 0 1.5px var(--ig-pink); }
 .form__chips { border: 0; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.form__chips legend small { font-weight: 400; color: rgba(199, 182, 214, .7); }
 .form__chips legend { font-size: .86rem; font-weight: 600; color: var(--mist); margin-bottom: 8px; padding: 0; }
 .form__chips button {
   min-height: 36px; padding: 0 14px; border: 0; border-radius: 999px; cursor: pointer;

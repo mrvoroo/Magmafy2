@@ -8,7 +8,7 @@
   user-select: none;
   -webkit-user-select: none;
   -webkit-tap-highlight-color: transparent;
-  overscroll-behavior: contain;
+  overscroll-behavior: auto; /* Magmafy: let vertical scroll reach the page */
   outline: none;
 }
 

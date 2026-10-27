@@ -1116,7 +1116,8 @@ const FlexCarousel = ({
 
     const onWheel = e => {
       const s = settingsRef.current;
-      if (!s || e.ctrlKey) return;
+      // Magmafy: with captureWheel off, the wheel never moves the row, so page scroll always works.
+      if (!s || e.ctrlKey || !s.captureWheel) return;
       let dx = e.deltaX;
       let dy = e.deltaY;
       if (e.shiftKey && Math.abs(dx) < Math.abs(dy)) {
@@ -1186,7 +1187,9 @@ const FlexCarousel = ({
     container.addEventListener('pointerup', onPointerUp);
     container.addEventListener('pointerleave', onPointerLeave);
     container.addEventListener('pointercancel', onPointerCancel);
-    container.addEventListener('wheel', onWheel, { passive: false });
+    // Magmafy: only listen to the wheel when it is meant to move the row, so the page never waits on it.
+    const wheelOn = Boolean(settingsRef.current?.captureWheel);
+    if (wheelOn) container.addEventListener('wheel', onWheel, { passive: false });
     container.addEventListener('keydown', onKeyDown);
     container.addEventListener('focus', onFocus);
     container.addEventListener('blur', onBlur);

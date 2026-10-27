@@ -480,6 +480,8 @@ const Contact = () => {
   const [plats, setPlats] = useState([]);
   const [sent, setSent] = useState(false);
   const toggle = p => setPlats(cur => (cur.includes(p) ? cur.filter(x => x !== p) : [...cur, p]));
+  const [goals, setGoals] = useState([]);
+  const toggleGoal = g => setGoals(cur => (cur.includes(g) ? cur.filter(x => x !== g) : [...cur, g]));
   return (
     <section className="section contact" id="contact">
       <div className="wrap contact__grid">
@@ -524,12 +526,12 @@ const Contact = () => {
                   <button type="button" key={p} aria-pressed={plats.includes(p)} onClick={() => toggle(p)}>{p}</button>
                 ))}
               </fieldset>
-              <label htmlFor="f-goal">الهدف التسويقي
-                <select id="f-goal" required defaultValue="">
-                  <option value="" disabled>اختر هدفك الأهم</option>
-                  {GOALS.map(g => <option key={g}>{g}</option>)}
-                </select>
-              </label>
+              <fieldset className="form__chips">
+                <legend>أهدافك التسويقية <small>(اختر هدفًا أو أكثر)</small></legend>
+                {GOALS.map(g => (
+                  <button type="button" key={g} aria-pressed={goals.includes(g)} onClick={() => toggleGoal(g)}>{g}</button>
+                ))}
+              </fieldset>
               <label htmlFor="f-msg">الرسالة<textarea id="f-msg" rows="3" placeholder="حدثنا عن معرضك ومنتجاتك وما تريد تحقيقه" /></label>
               <button type="submit" className="btn btn--grad btn--block">أرسل طلبي <Icon name="arrow" size={18} /></button>
               <p className="form__note">بياناتك محفوظة لدينا ولن نشاركها مع أي جهة.</p>

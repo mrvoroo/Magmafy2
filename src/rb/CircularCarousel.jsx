@@ -191,6 +191,7 @@ const CircularCarousel = ({
   interval = 3,
   direction = 'left',
   draggable = true,
+  wheel = false,
   momentum = 0.6,
   snap = true,
   pauseOnHover = true,
@@ -304,6 +305,7 @@ const CircularCarousel = ({
     speed,
     interval: Math.max(0.5, interval),
     draggable,
+    wheel,
     momentum: clamp(momentum, 0, 1),
     snap,
     pauseOnHover,
@@ -643,7 +645,8 @@ const CircularCarousel = ({
 
     const onWheel = event => {
       const s = settingsRef.current;
-      if (!s.draggable) return;
+      // Magmafy: drag only; the wheel always scrolls the page.
+      if (!s.draggable || !s.wheel) return;
       const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : 0;
       if (!delta) return;
       event.preventDefault();
@@ -659,7 +662,8 @@ const CircularCarousel = ({
       }, 140);
       wake();
     };
-    root.addEventListener('wheel', onWheel, { passive: false });
+    // Magmafy: drag only, so no wheel listener unless wheel is enabled.
+    if (settingsRef.current.wheel) root.addEventListener('wheel', onWheel, { passive: false });
     document.addEventListener('visibilitychange', onVisibility);
 
     measure();
