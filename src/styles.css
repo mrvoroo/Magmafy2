@@ -423,25 +423,18 @@ details[open] .faq__plus { transform: rotate(45deg); background: var(--grad); }
 /* contact */
 .contact__grid {
   display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 48px; align-items: center;
-  padding: clamp(28px, 4vw, 56px); border-radius: 34px; position: relative; overflow: hidden;
-  background:
-    radial-gradient(70% 90% at 100% 0%, rgba(250, 126, 30, .35), transparent 60%),
-    radial-gradient(70% 90% at 0% 100%, rgba(79, 91, 213, .38), transparent 60%),
-    linear-gradient(225deg, rgba(214, 41, 118, .55), rgba(150, 47, 191, .5));
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .16), 0 50px 100px -40px rgba(214, 41, 118, .6);
+  position: relative;
 }
-.contact .wrap.contact__grid { max-width: 1180px; width: calc(100% - 2 * max(20px, env(safe-area-inset-left, 0px))); }
 .contact__copy { display: flex; flex-direction: column; gap: 18px; }
-.contact__copy .eyebrow { align-self: flex-start; margin-bottom: 0; background: rgba(255, 255, 255, .14); }
-.contact .grad { background: linear-gradient(225deg, #fff 10%, var(--ig-yellow) 90%); -webkit-background-clip: text; background-clip: text; }
-.contact__copy p { color: rgba(255, 244, 250, .88); font-size: 1.06rem; }
+.contact__copy .eyebrow { align-self: flex-start; margin-bottom: 0; }
+.contact__copy p { color: var(--mist); font-size: 1.06rem; }
 .contact__promise { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; font-weight: 600; }
 .contact__promise li { display: flex; gap: 10px; align-items: center; }
 .contact__promise .icon { color: var(--ig-yellow); }
 
 .form {
   display: flex; flex-direction: column; gap: 14px; padding: clamp(22px, 3vw, 32px); border-radius: 26px;
-  background: rgba(14, 7, 22, .78); backdrop-filter: blur(20px); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12);
+  background: var(--plum); box-shadow: inset 0 0 0 1px rgba(255, 228, 246, .14), 0 30px 70px -30px rgba(0, 0, 0, .8);
   min-width: 0;
 }
 .form h3 { font-size: 1.3rem; margin-bottom: 4px; }

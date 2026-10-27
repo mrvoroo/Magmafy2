@@ -14,6 +14,7 @@ import {
 const ICONS = {
   calendar: <><rect x="3" y="5" width="18" height="16" rx="3" /><path d="M3 10h18M8 3v4M16 3v4M8 15h3" /></>,
   camera: <><path d="M4 8h3l2-3h6l2 3h3v11H4z" /><circle cx="12" cy="13" r="3.5" /></>,
+  sparkle: <><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z" /><path d="M18.5 15.5l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z" /></>,
   pen: <><path d="M4 20l4-1 11-11-3-3L5 16z" /><path d="M14 7l3 3" /></>,
   target: <><circle cx="12" cy="12" r="8" /><circle cx="12" cy="12" r="4" /><circle cx="12" cy="12" r="0.8" /></>,
   chat: <><path d="M4 5h16v11H9l-5 4z" /><path d="M8 10h8M8 13h5" /></>,
@@ -156,7 +157,7 @@ const Hero = () => (
       <div className="hero__copy">
         <Eyebrow>وكالة نمو متخصصة في الأثاث والديكور</Eyebrow>
         <h1 className="hero__title">نحوّل متابعيك إلى <span className="grad">زوّار لمعرضك</span>، ومحتواك إلى <span className="grad">مبيعات</span></h1>
-        <p className="hero__lede">نعمل فقط مع معارض الأثاث ومتاجر الديكور وشركات التصميم الداخلي. نصوّر قطعك كما تستحق، ونطلق إعلانات تصل إلى من يجهّز بيته الآن، ونقيس كل استفسار وزيارة وطلب.</p>
+        <p className="hero__lede">نعمل فقط مع معارض الأثاث ومتاجر الديكور وشركات التصميم الداخلي. نُنشئ لقطعك صورًا وريلز واقعية بالذكاء الاصطناعي، ونطلق إعلانات تصل إلى من يجهّز بيته الآن، ونقيس كل استفسار وزيارة وطلب.</p>
         <div className="hero__ctas">
           <a href="#contact" className="btn btn--grad">احجز استشارة مجانية <Icon name="arrow" size={18} /></a>
           <a href="#work" className="btn btn--ghost">شاهد نتائج عملائنا</a>
@@ -245,7 +246,7 @@ const Showcase = () => (
       <div className="head">
         <Eyebrow>نماذج المحتوى</Eyebrow>
         <h2>محتوى يجعل القطعة <span className="grad">تُحفظ وتُشارك وتُطلب</span></h2>
-        <p>تصوير منتجات، جولات داخل المعرض، قبل وبعد، وتقارير أداء. اسحب الدائرة لتشاهد ما ننتجه كل شهر.</p>
+        <p>صور وريلز وستوري واقعية بالذكاء الاصطناعي، قبل وبعد، وتقارير أداء. اسحب الدائرة لتشاهد ما ننتجه كل شهر.</p>
       </div>
     </div>
     <div className="showcase__stage" dir="ltr">
@@ -413,16 +414,16 @@ const About = () => (
   <section className="section" id="about">
     <div className="wrap about">
       <div className="about__media">
-        <img src="img/camera.jpg" alt="معدات تصوير المنتجات" className="about__a" loading="lazy" />
+        <img src="img/bed-velvet.jpg" alt="مشهد غرفة نوم من إنتاج المحتوى" className="about__a" loading="lazy" />
         <img src="img/living-boho.jpg" alt="صالة معرض أثاث" className="about__b" loading="lazy" />
         <img src="img/dashboard.jpg" alt="لوحة تحليل الأداء" className="about__c" loading="lazy" />
-        <ul className="about__orbit" aria-hidden="true"><li>تصوير</li><li>إعلانات</li><li>تحليل</li><li>مجتمع</li></ul>
+        <ul className="about__orbit" aria-hidden="true"><li>ذكاء اصطناعي</li><li>إعلانات</li><li>تحليل</li><li>مجتمع</li></ul>
       </div>
       <div className="about__copy">
         <Eyebrow>من نحن</Eyebrow>
         <h2>فريق صغير الحجم، <span className="grad">كبير الأثر</span></h2>
         <p>Magmafy وكالة عربية متخصصة في قطاع الأثاث والديكور، وُلدت من قناعة واحدة: قطعة الأثاث تُشترى بالعين أولًا، والسوشيال ميديا هي أول معرض يدخله عميلك اليوم.</p>
-        <p>يجمع فريقنا مصورين ومصممين وكتّاب محتوى وخبراء إعلانات ومحللين يعملون كفريق تسويق داخلي لعلامتك. نفهم ذوق جمهورك ومواسم شرائه وأسئلته قبل أن يزور معرضك، ونقيس كل خطوة.</p>
+        <p>يجمع فريقنا مصممين وخبراء إنتاج محتوى بالذكاء الاصطناعي وكتّاب محتوى وخبراء إعلانات ومحللين يعملون كفريق تسويق داخلي لعلامتك. نفهم ذوق جمهورك ومواسم شرائه وأسئلته قبل أن يزور معرضك، ونقيس كل خطوة.</p>
         <dl className="values">
           <div><dt>إبداع</dt><dd>محتوى يُبرز جمال قطعك</dd></div>
           <div><dt>أرقام</dt><dd>قرارات تستند إلى البيانات</dd></div>
