@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import GhostFibers from './rb/GhostFibers';
 import CrystalizedBall from './rb/CrystalizedBall';
 import TextLoop from './rb/TextLoop';
 import CircularCarousel from './rb/CircularCarousel';
@@ -183,12 +182,12 @@ const Ribbon = () => {
         key={fontKey}
         text={BENEFITS}
         shape="wave"
-        speed={80}
+        speed={60}
         direction="reverse"
         separator="✦"
-        curviness={55}
-        fontSize={44}
-        fontWeight={800}
+        curviness={28}
+        fontSize={34}
+        fontWeight={600}
         letterSpacing={0}
         uppercase={false}
         ribbon
@@ -325,12 +324,13 @@ const Work = () => {
           items={items}
           preset="liquid"
           intro="rise"
-          cardHeight={0.56}
-          gap={14}
-          radius={18}
-          squeeze={0.2}
+          cardHeight={0.82}
+          gap={16}
+          radius={20}
+          squeeze={0.15}
           focusOnClick
-          captions
+          captions={false}
+          captureWheel={false}
           onChange={i => setIdx(i)}
         />
       </div>
@@ -593,10 +593,6 @@ const Footer = () => {
 export default function App() {
   return (
     <>
-      <div className="bg" aria-hidden="true">
-        <GhostFibers glowColor="#c13584" secondaryColor="#FA7E1E" layers={3} twist={1.2} threads={72} fiberStyle="dots"
-          depthOfField={0.85} hoverEffect="focus" intro mouseInteraction pulseOnClick={false} />
-      </div>
       <div className="bg-veil" aria-hidden="true" />
       <Header />
       <main>
