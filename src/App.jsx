@@ -5,7 +5,7 @@ import CircularCarousel from './rb/CircularCarousel';
 import FlexCarousel from './rb/FlexCarousel';
 import SideRays from './rb/SideRays';
 import {
-  NAV, PLATFORMS, SERVICES, BENEFITS, SHOWCASE, WORK_FILTERS, WORK, STEPS, WHY,
+  NAV, PLATFORMS, SERVICES, BENEFITS, SHOWCASE, MARKET, STEPS, WHY,
   PLANS, POSTS, FAQ, BIZ_TYPES, GOALS, GRID
 } from './content';
 
@@ -160,7 +160,7 @@ const Hero = () => (
         <p className="hero__lede">نعمل فقط مع معارض الأثاث ومتاجر الديكور وشركات التصميم الداخلي. نُنشئ لقطعك صورًا وريلز واقعية بالذكاء الاصطناعي، ونطلق إعلانات تصل إلى من يجهّز بيته الآن، ونقيس كل استفسار وزيارة وطلب.</p>
         <div className="hero__ctas">
           <a href="#contact" className="btn btn--grad">احجز استشارة مجانية <Icon name="arrow" size={18} /></a>
-          <a href="#work" className="btn btn--ghost">شاهد نتائج عملائنا</a>
+          <a href="#work" className="btn btn--ghost">ماذا تقول أرقام السوق؟</a>
         </div>
         <ul className="platforms" aria-label="المنصات التي نديرها">
           {PLATFORMS.map(p => <li key={p}>{p}</li>)}
@@ -291,15 +291,24 @@ const Process = () => (
   </section>
 );
 
-/* ---------- work (flex + rays) ---------- */
+/* ---------- market study (flex + rays + cards) ---------- */
+
+const PostMock = ({ m }) => (
+  <div className={`mpost tone-${m.tone}`} aria-hidden="true">
+    <div className="mpost__card">
+      <div className="mpost__head"><span className="mpost__avatar" /><span className="mpost__handle">{m.handle}</span><span className="mpost__plat">{m.platform}</span></div>
+      <div className="mpost__media">
+        <img src={m.img} alt="" loading="lazy" />
+        <div className="mpost__overlay"><b>{m.overlay}</b><span>{m.overlaySub}</span></div>
+      </div>
+      <div className="mpost__actions"><span>♡</span><span>◌</span><span>➤</span><span className="mpost__save">▢</span></div>
+    </div>
+  </div>
+);
 
 const Work = () => {
-  const [filter, setFilter] = useState('all');
   const [idx, setIdx] = useState(0);
-  const list = useMemo(() => (filter === 'all' ? WORK : WORK.filter(w => w.cat === filter)), [filter]);
-  const items = useMemo(() => list.map(w => ({ src: w.src, alt: w.title, title: w.title, subtitle: w.subtitle })), [list]);
-  const cur = list[Math.min(idx, list.length - 1)] || list[0];
-
+  const items = useMemo(() => MARKET.map(m => ({ src: m.img, alt: m.type, title: m.type })), []);
   return (
     <section className="section work" id="work">
       <div className="rays rays--left" aria-hidden="true">
@@ -307,53 +316,35 @@ const Work = () => {
       </div>
       <div className="wrap">
         <div className="head">
-          <Eyebrow>أعمالنا</Eyebrow>
-          <h2>أرقام تتحرك <span className="grad">خلف كل قطعة أثاث</span></h2>
-          <p>نماذج من حسابات أثاث وديكور ونتائجها المختصرة. اختر نوع نشاطك وشاهد ما يمكن أن نفعله لمثله.</p>
-        </div>
-        <div className="filters" role="tablist" aria-label="نوع النشاط">
-          {WORK_FILTERS.map(([id, label]) => (
-            <button key={id} role="tab" aria-selected={filter === id} className={filter === id ? 'is-on' : ''}
-              onClick={() => { setFilter(id); setIdx(0); }}>{label}</button>
-          ))}
+          <Eyebrow>أرقام السوق</Eyebrow>
+          <h2>ماذا تقول الدراسات عن <span className="grad">المحتوى الذي يبيع الأثاث</span>؟</h2>
+          <p>جمعنا أرقامًا منشورة من دراسات وتقارير دولية عن أداء كل نوع من المحتوى، وبنينا خدماتنا حولها. كل رقم معه مصدره.</p>
         </div>
       </div>
 
       <div className="work__stage" dir="ltr">
-        <FlexCarousel
-          key={filter}
-          items={items}
-          preset="liquid"
-          intro="rise"
-          cardHeight={0.82}
-          gap={16}
-          radius={20}
-          squeeze={0.15}
-          focusOnClick
-          captions={false}
-          captureWheel={false}
-          onChange={i => setIdx(i)}
-        />
+        <FlexCarousel items={items} preset="liquid" intro="rise" cardHeight={0.82} gap={16} radius={20} squeeze={0.15}
+          focusOnClick captions={false} captureWheel={false} onChange={i => setIdx(i)} />
       </div>
 
-      {cur && (
-        <div className="wrap">
-          <div className="result" key={cur.title}>
-            <div className="result__label">
-              <span className="pill">{cur.subtitle}</span>
-              <h3>{cur.title}</h3>
-              <p>{cur.note}</p>
-            </div>
-            <dl className="result__metrics">
-              {cur.metrics.map(([n, l]) => (
-                <div key={l}><dd className="num grad">{n}</dd><dt>{l}</dt></div>
-              ))}
-            </dl>
-          </div>
-          <p className="fineprint">الأرقام المعروضة نماذج توضيحية لنوع النتائج التي نقيسها.</p>
-          <div className="center"><a href="#contact" className="btn btn--grad">أريد نتائج مثل هذه <Icon name="arrow" size={18} /></a></div>
+      <div className="wrap">
+        <div className="market">
+          {MARKET.map((m, i) => (
+            <article className={`mcard ${i === idx ? 'is-active' : ''}`} key={m.type}>
+              <PostMock m={m} />
+              <div className="mcard__body">
+                <span className="pill mcard__type">{m.type}</span>
+                <p className="mcard__stat"><span className="num grad">{m.stat}</span></p>
+                <h3 className="mcard__label">{m.label}</h3>
+                <p className="mcard__desc">{m.desc}</p>
+                <a className="mcard__src" href={m.url} target="_blank" rel="noopener noreferrer">المصدر: {m.source}</a>
+              </div>
+            </article>
+          ))}
         </div>
-      )}
+        <p className="fineprint">أرقام عامة من دراسات منشورة عن السوق، وليست نتائج عملاء لـ Magmafy. النتائج الفعلية تختلف حسب النشاط والميزانية.</p>
+        <div className="center"><a href="#contact" className="btn btn--grad">أريد خطة محتوى مبنية على هذه الأرقام <Icon name="arrow" size={18} /></a></div>
+      </div>
     </section>
   );
 };

@@ -3,7 +3,7 @@ const img = name => `img/${name}.jpg`;
 export const NAV = [
   ['services', 'خدماتنا'],
   ['showcase', 'المحتوى'],
-  ['work', 'أعمالنا'],
+  ['work', 'أرقام السوق'],
   ['pricing', 'باقاتنا'],
   ['about', 'من نحن'],
   ['faq', 'الأسئلة'],
@@ -74,65 +74,54 @@ export const SHOWCASE = [
   { src: img('stool'), alt: 'كرسي بار خشبي', title: 'منتج الأسبوع', subtitle: 'قصة قصيرة' },
 ];
 
-export const WORK_FILTERS = [
-  ['all', 'الكل'],
-  ['home', 'أثاث منزلي'],
-  ['office', 'أثاث مكتبي'],
-  ['interior', 'تصميم داخلي'],
-  ['decor', 'ديكور وإكسسوارات'],
-  ['online', 'متاجر أونلاين'],
-];
-
-export const WORK = [
+export const MARKET = [
   {
-    cat: 'home', src: img('living-calm'), title: 'معرض أثاث منزلي', subtitle: 'الرياض · 6 أشهر',
-    metrics: [['+312%', 'استفسارات الرسائل'], ['+48%', 'زيارات المعرض'], ['−37%', 'تكلفة الطلب']],
-    note: 'خطة موسم الزواج وإعلانات زيارة المعرض',
+    type: 'ريلز وفيديو قصير', platform: 'Instagram', handle: 'your.showroom', img: img('living-boho'),
+    overlay: 'جولة داخل الصالة', overlaySub: 'ريل 15 ثانية',
+    stat: '85%', label: 'من المستهلكين اقتنعوا بشراء منتج بعد مشاهدة فيديو عنه',
+    desc: 'الفيديو القصير يُري القطعة في مكانها الحقيقي، ويجيب عن أسئلة المقاس والخامة قبل أن يسألها العميل.',
+    source: 'Wyzowl، تقرير State of Video Marketing 2026', url: 'https://wyzowl.com/video-marketing-statistics/',
+    tone: 'sunset',
   },
   {
-    cat: 'interior', src: img('interior-open'), title: 'شركة تصميم داخلي', subtitle: 'جدة · 4 أشهر',
-    metrics: [['+21', 'طلب عرض سعر شهريًا'], ['+190%', 'حفظ المنشورات'], ['3.4x', 'العائد على الإعلانات']],
-    note: 'محتوى قبل وبعد وجولات داخل المشاريع',
+    type: 'منشورات الكاروسيل', platform: 'Instagram', handle: 'your.decor', img: img('living-calm'),
+    overlay: '5 أفكار لتنسيق الصالة', overlaySub: 'اسحب للمزيد',
+    stat: '+49%', label: 'تفاعل أعلى من منشورات الصورة الواحدة على إنستجرام',
+    desc: 'متوسط تفاعل الكاروسيل 0.55% مقابل 0.37% للصورة الواحدة، وهو الأعلى في المشاهدات عند كل أحجام الحسابات.',
+    source: 'Socialinsider، معايير إنستجرام 2026', url: 'https://www.socialinsider.io/blog/instagram-carousel-posts-study/',
+    tone: 'violet',
   },
   {
-    cat: 'office', src: img('office-lounge'), title: 'مورّد أثاث مكتبي', subtitle: 'الدمام · 5 أشهر',
-    metrics: [['+64', 'طلب مشروع B2B'], ['+220%', 'زيارات الملف'], ['−29%', 'تكلفة العميل']],
-    note: 'حملات LinkedIn وكتالوج المكاتب',
+    type: 'عرض ثلاثي الأبعاد وواقع معزز', platform: 'متجر أونلاين', handle: 'your.store', img: img('chair-yellow'),
+    overlay: 'جرّبها في غرفتك', overlaySub: 'عرض 360°',
+    stat: '+94%', label: 'زيادة في التحويل مقارنة بالاعتماد على الصور وحدها',
+    desc: 'حين يرى العميل القطعة من كل الزوايا وداخل غرفته، يشتري بثقة أكبر ويقل احتمال الإرجاع.',
+    source: 'Shopify، 2020', url: 'https://www.shopify.com/ca/blog/3d-model-products',
+    tone: 'ocean',
   },
   {
-    cat: 'online', src: img('sofa-orange'), title: 'متجر أثاث أونلاين', subtitle: 'السعودية · 3 أشهر',
-    metrics: [['+176%', 'طلبات المتجر'], ['4.1x', 'العائد على الإعلانات'], ['+9.8K', 'متابع جديد']],
-    note: 'إعلانات كتالوج وإعادة استهداف',
+    type: 'محتوى العملاء', platform: 'Instagram', handle: 'your.home', img: img('living-cream'),
+    overlay: 'من بيت عميلنا', overlaySub: 'صورة من عميل حقيقي',
+    stat: '5x', label: 'نسبة نقر أعلى للإعلانات التي تستخدم محتوى العملاء',
+    desc: 'صور العملاء داخل بيوتهم تبني ثقة لا تبنيها صور الكتالوج، وتُري القطعة في حياة يومية حقيقية.',
+    source: 'Salesforce، عبر Nosto', url: 'https://nosto.com/?p=42168',
+    tone: 'rose',
   },
   {
-    cat: 'decor', src: img('decor-corner'), title: 'متجر ديكور وإكسسوارات', subtitle: 'الكويت · 4 أشهر',
-    metrics: [['+260%', 'مشاهدات الريلز'], ['+41%', 'مبيعات الموسم'], ['+12K', 'حفظ للمنشورات']],
-    note: 'ريلز تنسيق الأركان ومحتوى Pinterest',
+    type: 'لوحات الإلهام', platform: 'Pinterest', handle: 'your.ideas', img: img('decor-corner'),
+    overlay: 'ركن قراءة دافئ', overlaySub: 'لوحة إلهام',
+    stat: '60%', label: 'من مستخدمي Pinterest استخدموه في قرارات شراء الديكور',
+    desc: 'Pinterest هو المكان الذي يخطط فيه العميل لبيته ويجمع أفكاره قبل أن يزور المعرض.',
+    source: 'Pinterest، عبر Social Media Today، 2017', url: 'https://www.socialmediatoday.com/news/pinterest-releases-new-data-on-how-people-use-the-platform-for-home-decor-s/503574',
+    tone: 'amber',
   },
   {
-    cat: 'home', src: img('bed-classic'), title: 'معرض غرف نوم', subtitle: 'القاهرة · 6 أشهر',
-    metrics: [['+380%', 'الوصول'], ['+52%', 'زيارات المعرض'], ['+2.7K', 'رسالة استفسار']],
-    note: 'تقويم موسم الزواج وإدارة الرسائل',
-  },
-  {
-    cat: 'interior', src: img('interior-sun'), title: 'استوديو تصميم سكني', subtitle: 'أبوظبي · 4 أشهر',
-    metrics: [['+18', 'مشروع جديد'], ['+140%', 'التفاعل'], ['−33%', 'تكلفة الطلب']],
-    note: 'دراسات حالة مرئية لكل مشروع',
-  },
-  {
-    cat: 'office', src: img('loft-cafe'), title: 'تجهيز مقاهٍ ومساحات عمل', subtitle: 'الرياض · 3 أشهر',
-    metrics: [['+37', 'طلب عرض سعر'], ['+95%', 'نقرات الموقع'], ['2.9x', 'العائد على الإعلانات']],
-    note: 'إعلانات استهداف أصحاب المشاريع',
-  },
-  {
-    cat: 'decor', src: img('living-green'), title: 'علامة مفروشات', subtitle: 'عمّان · 5 أشهر',
-    metrics: [['+230%', 'حفظ ومشاركة'], ['+44%', 'مبيعات أونلاين'], ['+6.1K', 'متابع جديد']],
-    note: 'محتوى تنسيق الألوان والخامات',
-  },
-  {
-    cat: 'online', src: img('chair-yellow'), title: 'متجر كراسي ومقاعد', subtitle: 'السعودية · 3 أشهر',
-    metrics: [['+148%', 'الطلبات'], ['3.6x', 'العائد على الإعلانات'], ['−41%', 'تكلفة الطلب']],
-    note: 'صور منتجات بالذكاء الاصطناعي على خلفيات لونية',
+    type: 'سرعة الرد على الرسائل', platform: 'الرسائل', handle: 'your.brand', img: img('dining'),
+    overlay: 'كم سعر الطاولة؟', overlaySub: 'رسالة جديدة',
+    stat: '7x', label: 'فرصة أعلى لتأهيل العميل عند الرد خلال ساعة',
+    desc: 'الرد خلال الساعة الأولى يرفع فرصة الوصول إلى محادثة جادة مع العميل، وتتراجع الفرصة بسرعة مع كل ساعة تأخير.',
+    source: 'Harvard Business Review، 2011', url: 'https://hbr.org/2011/03/the-short-life-of-online-sales-leads',
+    tone: 'teal',
   },
 ];
 

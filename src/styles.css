@@ -328,6 +328,53 @@ main, .footer, .header { position: relative; z-index: 2; }
 .fineprint { margin-top: 12px; font-size: .78rem; color: rgba(199, 182, 214, .7); text-align: center; }
 @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 
+
+/* market study cards */
+.market { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.mcard {
+  display: flex; flex-direction: column; overflow: hidden; border-radius: var(--radius);
+  background: var(--glass); backdrop-filter: blur(14px); box-shadow: inset 0 0 0 1px var(--line);
+  transition: transform .35s cubic-bezier(.2, .8, .2, 1), box-shadow .35s;
+}
+.mcard:hover, .mcard.is-active { transform: translateY(-6px); box-shadow: inset 0 0 0 1px rgba(254, 218, 117, .4), 0 30px 60px -30px rgba(214, 41, 118, .7); }
+.mpost { position: relative; display: grid; place-items: center; padding: 26px 20px 22px; overflow: hidden; isolation: isolate; }
+.mpost::before, .mpost::after { content: ""; position: absolute; z-index: -1; border-radius: 50%; background: rgba(255, 255, 255, .16); }
+.mpost::before { width: 160px; height: 160px; top: -50px; left: -40px; }
+.mpost::after { width: 110px; height: 110px; bottom: -30px; right: -20px; }
+.tone-sunset { background: linear-gradient(225deg, var(--ig-yellow), var(--ig-orange) 45%, var(--ig-pink)); }
+.tone-violet { background: linear-gradient(225deg, #b26bff, var(--ig-purple) 50%, var(--ig-blue)); }
+.tone-ocean { background: linear-gradient(225deg, #5ad1ff, var(--ig-blue) 60%, #3b2a9e); }
+.tone-rose { background: linear-gradient(225deg, #ff9ac1, var(--ig-pink) 55%, var(--ig-purple)); }
+.tone-amber { background: linear-gradient(225deg, var(--ig-yellow), var(--ig-orange) 60%, #d4442b); }
+.tone-teal { background: linear-gradient(225deg, #6ef0c8, #1fa6a0 55%, var(--ig-blue)); }
+.mpost__card {
+  width: min(78%, 230px); padding: 8px 8px 6px; border-radius: 14px; background: #fff; color: #1d1424;
+  box-shadow: 0 22px 40px -18px rgba(20, 5, 30, .7); transform: rotate(-3deg); transition: transform .4s cubic-bezier(.2, .8, .2, 1);
+}
+.mcard:hover .mpost__card, .mcard.is-active .mpost__card { transform: rotate(0) scale(1.03); }
+.mpost__head { display: flex; align-items: center; gap: 6px; padding: 2px 2px 7px; font: 700 .7rem var(--f-body); direction: ltr; }
+.mpost__avatar { width: 18px; height: 18px; border-radius: 50%; background: var(--grad); flex: none; }
+.mpost__plat { margin-left: auto; font-weight: 500; color: #7a6a86; font-size: .64rem; }
+.mpost__media { position: relative; border-radius: 9px; overflow: hidden; aspect-ratio: 4 / 4.2; }
+.mpost__media img { width: 100%; height: 100%; object-fit: cover; }
+.mpost__overlay {
+  position: absolute; inset: auto 0 0; padding: 26px 10px 9px; display: flex; flex-direction: column;
+  background: linear-gradient(transparent, rgba(16, 6, 24, .82)); color: #fff; line-height: 1.4;
+}
+.mpost__overlay b { font: 700 .92rem var(--f-display); }
+.mpost__overlay span { font-size: .66rem; opacity: .85; }
+.mpost__actions { display: flex; gap: 10px; padding: 6px 4px 2px; font-size: .78rem; color: #4b3c56; direction: ltr; }
+.mpost__save { margin-left: auto; }
+.mcard__body { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; padding: 20px 22px 22px; flex: 1; }
+.mcard__stat { line-height: 1.1; }
+.mcard__stat .num { font-size: clamp(2.2rem, 1.6rem + 1.6vw, 3rem); font-weight: 800; }
+.mcard__label { font-size: 1.02rem; line-height: 1.6; }
+.mcard__desc { color: var(--mist); font-size: .93rem; }
+.mcard__src { margin-top: auto; padding-top: 10px; font-size: .78rem; color: var(--ig-yellow); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(254, 218, 117, .35); }
+.mcard__src:hover { text-decoration-color: currentColor; }
+@media (max-width: 1080px) { .market { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .market { grid-template-columns: minmax(0, 1fr); } }
+
 /* why */
 .why { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 56px; align-items: start; }
 .why__intro { position: sticky; top: 120px; display: flex; flex-direction: column; align-items: flex-start; gap: 18px; }
