@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from 'react';
-const gsap = window.gsap; // loaded from cdnjs as a UMD global
+import { gsap } from 'gsap';
 
 import './TextLoop.css';
 
