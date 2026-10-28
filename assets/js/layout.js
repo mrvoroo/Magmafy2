@@ -60,7 +60,7 @@ export function renderHeader(page, onLang) {
 
   const langSwitch = h('div', { class: 'lang', role: 'group', 'aria-label': t('nav.langLabel') },
     ...LANGS.map((l) => {
-      const b = h('button', { type: 'button', class: 'lang__btn', 'aria-pressed': String(l === getLang()), lang: l }, l === 'ar' ? 'ع' : 'EN');
+      const b = h('button', { type: 'button', class: 'lang__btn', 'aria-pressed': String(l === getLang()), lang: l }, l === 'ar' ? 'AR' : 'EN');
       b.addEventListener('click', () => l !== getLang() && onLang(l));
       return b;
     }));
