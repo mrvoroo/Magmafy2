@@ -1,4 +1,4 @@
-const img = name => `img/${name}.jpg`;
+const img = name => `/img/${name}.jpg`;
 
 export const NAV = [
   ['services', 'خدماتنا'],

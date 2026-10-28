@@ -405,9 +405,9 @@ const About = () => (
   <section className="section" id="about">
     <div className="wrap about">
       <div className="about__media">
-        <img src="img/bed-velvet.jpg" alt="مشهد غرفة نوم من إنتاج المحتوى" className="about__a" loading="lazy" />
-        <img src="img/living-boho.jpg" alt="صالة معرض أثاث" className="about__b" loading="lazy" />
-        <img src="img/dashboard.jpg" alt="لوحة تحليل الأداء" className="about__c" loading="lazy" />
+        <img src="/img/bed-velvet.jpg" alt="مشهد غرفة نوم من إنتاج المحتوى" className="about__a" loading="lazy" />
+        <img src="/img/living-boho.jpg" alt="صالة معرض أثاث" className="about__b" loading="lazy" />
+        <img src="/img/dashboard.jpg" alt="لوحة تحليل الأداء" className="about__c" loading="lazy" />
         <ul className="about__orbit" aria-hidden="true"><li>ذكاء اصطناعي</li><li>إعلانات</li><li>تحليل</li><li>مجتمع</li></ul>
       </div>
       <div className="about__copy">
